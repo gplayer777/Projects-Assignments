@@ -1,7 +1,7 @@
 using System;
 
 
-namespace NowyProjekt
+namespace Biblioteka
 {
 
     public class Slowo<K, V>
@@ -146,30 +146,13 @@ namespace NowyProjekt
 
 
         }
+        
+        
+        
 
     
 
 
 }
 
-class Program
-{
-        static void Main(string[] args)
-        {
 
-
-        Slownik<int, string> s = new Slownik<int, string>();
-            s.add(1, "kacper");
-            s.add(2, "gosia");
-
-            Console.WriteLine(s.find(1));
-            s.print();
-            s.remove(1);
-            s.find(1);
-            s.remove(2);
-            s.print();
-
-
-        }
-    }
-}
