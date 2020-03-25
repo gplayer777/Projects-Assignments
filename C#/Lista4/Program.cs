@@ -11,16 +11,17 @@ class Program
                 Console.WriteLine(rs.next());
 
 
-			      PrimeCollection primes = new PrimeCollection();
+	    PrimeCollection primes = new PrimeCollection();
             primes.GetEnumerator().MoveNext();
-			         int k = 0;
+		
+		int k = 0;
 
-			      foreach (Prime p in primes)
-			      {
-				      Console.WriteLine(p.val);
-				      k++;
-				      if (k == 10) break;
-			      }
+		foreach (Prime p in primes)
+		{
+	           Console.WriteLine(p.val);
+	           k++;
+		   if (k == 10) break;
+		}
 
 
 
