@@ -2,6 +2,7 @@ namespace Projekt
 {
 class Program
     {
+	using Biblioteka;
         static void Main(string[] args)
         {
         
