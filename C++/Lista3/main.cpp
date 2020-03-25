@@ -1,113 +1,80 @@
 
-
-
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
 #include <vector>
 #include <iostream>
 #include <string>
-#include <stdexcept>
-#include "kolejki.hpp"
+#include "klasy.hpp"
 
 using namespace std;
 
 int main(void){
     
-    bool dalej = false;
-    string w;
-    int d;
+    Punkt p(-4, 4);
+    Punkt w(-12, 2);
+    Punkt s(1, 1);
     
-    vector<string> g;
+    Odcinek o(p, w);
     
-    g.push_back("asia");
-    g.push_back("basia");
+    o.obroc(s, 0.349);
     
-    Kolejka m{"asia", "basa"};
+    cout<<o.getP1().getX()<<endl;
+    cout<<o.getP1().getY()<<endl;
     
-    Kolejka z(100);
+    cout<<o.getP2().getX()<<endl;
+    cout<<o.getP2().getY()<<endl;
     
-    do{
-        cout<<"1 - wyswietl "<<endl;
-        cout<<"2 - rozmiar"<<endl;
-        cout<<"3 - sprawddz "<<endl;
-        cout<<"4 - wyciagnij"<<endl;
-        cout<<"5 - wloz"<<endl;
-        cin>>d;
+    Punkt o1(2, 9);
+    Punkt o2(5, 4.5);
+    
+    Odcinek O1(o1, o2);
+    
+    Punkt c(4.4, 5.4);
+    
+    
+    cout<<O1.onSegment(c)<<endl;
+    
+    Punkt o3(1, 2);
+    Punkt o4(7, 8);
+    
+    Odcinek O2(o3, o4);
+    
+    
+    
+    try{
+        p.setX(globalne::punktPrzeciecia(O1, O2).getX());
+        p.setY(globalne::punktPrzeciecia(O1, O2).getY());
         
-        switch(d){
-            case 1:
-                z.wyswietl(); break;
-            case 2:
-                cout<<z.rozmiar()<<endl; break;
-            case 3:
-                cout<<z.sprawdz()<<endl; break;
-            case 4:
-                cout<<z.wyciagnij()<<endl; break;
-            case 5:
-                cout<<"podaj el"<<endl;
-                cin>>w;
-                z.wloz(w); break;
-        }
+        cout<<p.getX()<<endl;
+        cout<<p.getY()<<endl;
         
-        
-        
-        
-        cout<<"dalej? t/n"<<endl;
-        cin>>w;
-        if(w=="t")
-            dalej = true;
-        else
-            dalej = false;
-        
-    }while(dalej);
+    }catch(invalid_argument&){
+        cout<<"nie przecinaja sie "<<endl;
+    }
     
     
+    Punkt t1(0, 0);
+    Punkt t2(20, 0);
+    Punkt t3(10, 30);
     
-    Kolejka k(5);
-    k.wloz("asia");
-    k.wloz("basia");
-    k.wloz("kasia");
-    k.wloz("zosia");
-    k.wloz("gosia");
-    //k.wloz("marzena");
-    
-    /*
-     cout<<k.sprawdz()<<endl;
-     k.wyciagnij();
-     k.wyciagnij();
-     k.wyciagnij();
-     k.wyciagnij();
-     k.wyciagnij();
-     k.wyciagnij();
-     cout<<k.sprawdz()<<endl;
-     
-     
-     k.wloz("asia");
-     k.wloz("basia");
-     k.wloz("kasia");
-     cout<<k.sprawdz()<<endl;
-     k.wyciagnij();
-     cout<<k.sprawdz()<<endl;
-     k.wyciagnij();
-     cout<<k.sprawdz()<<endl;
-     k.wyciagnij();
-     cout<<k.sprawdz()<<endl;
-     k.wyciagnij();
-     */
+    Punkt s1(10, 15);
+    Punkt s2(30, 15);
     
     
-    Kolejka s(k);
-    cout<<s.sprawdz()<<endl;
-    s=k;
-    cout<<s.sprawdz()<<endl;
+    Trojkat t(t1, t2, t3);
+    
+    cout<<t.zawieraSie(s1)<<endl;
+    cout<<t.zawieraSie(s2)<<endl;
+    
+    Punkt o5(o2);
     
     
     return 0;
-    
-    
-    
 }
+
+
+
 
 
 
